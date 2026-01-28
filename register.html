@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 1: HTML Basics</title>
+    <link rel="stylesheet" href="register.css">
+    <script>
+        function reg() {
+            let fullName = document.getElementById("fullName").value;
+            let fullEmail = document.getElementById("fullEmail").value;
+            let passWord = document.getElementById("passWord").value;
+            let confirmPassWord = document.getElementById("confirmPassWord").value;
+            let output = document.getElementById("output");
+            if (fullName === "" || fullEmail === "" || passWord === "" || confirmPassWord === "") {
+                output.innerHTML = "<p style='color:red;'>All fields are required.</p>";
+                return;
+            }
+
+            if(passWord.length < 8) {
+                output.innerHTML = "<p style='color:red;'>Password must be at least 8 characters long.</p>";
+                return;
+            }
+
+            else if (passWord !== confirmPassWord) {
+                output.innerHTML = "<p style='color:red;'>Passwords do not match.</p>";
+                return;
+            }
+            else{
+                output.innerHTML = "<p style='color:green;'>Registration successful!</p>";
+            }
+        }
+        </script>
+</head>
+<body>
+<form name="register">
+    <fieldset>
+        <legend>Create Account</legend>
+        Full Name: <input type="text" name="fullname" id="fullName" placeholder="Please enter your full name."><br><br>
+        Email: <input type="email" name="email" id="fullEmail" placeholder="Please Enter your School Email."><br><br>
+        Password: <input type="password" name="password" id="passWord" placeholder="Please enter your password."><br><br>
+        Confirm Password: <input type="password" name="confirmpassword" id="confirmPassWord" placeholder="Please confirm your password."><br><br>
+        <input type="button" class="reg" onclick="reg()" value="Register">
+    </fieldset>
+    <div id="output">
+
+    </div>
+    <div class="loginBar">
+           <h2 align="center"><a href="loginPage.html">Login</a></h2>
+    </div>
+</form>
+</body>
+

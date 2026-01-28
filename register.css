@@ -1,12 +1,12 @@
 reg {
-            background-color: blue;
+            background-color: goldenrod;
             color: white;
             padding: 10px 20px;
             border: none;
-            border-radius: 5px;
+            border-radius: 10px;
             cursor: pointer;
         }
         .reg:hover {
-            background-color: lightblue;
+            background-color: rgb(255, 236, 67);
             color:black;
-        }
+        }     
