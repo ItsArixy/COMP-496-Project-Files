@@ -1,29 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team Credits</title>
-    <link rel="stylesheet" href="teamPage.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Team Credits</title>
+  <link rel="stylesheet" href="teamPage.css" />
 </head>
+
 <body>
-    <div class="navBar">
-        <nav>
-                <ul>
-                    <li><a href="homePage.html">Home</a></li>
-                    <li><a href="aboutPage.html">About</a></li>
-                </ul>
-        </nav>
+  <!-- NAVBAR -->
+  <header class="navBar">
+    <div class="nav-inner">
+      
+
+      <nav class="nav-links">
+        <a href="homePage.html" class="nav-link">Home</a>
+        <a href="aboutPage.html" class="nav-link">About</a>
+        <a href="teamPage.html" class="nav-link active">Team</a>
+      </nav>
     </div>
-    <h1 align="center">Meet the Team</h1>
-    <div style="background-color: rgb(214, 212, 212); padding: 20px; max-width: 600px; margin: auto;">
-        <h2>Our Team Members:</h2>
-        <ul>
-            <li>Adaeze Uwazie - Project Lead</li>
-            <li>Myles Murray - Lead Developer</li>
-            <li>Mikayala Reeves - UX Designer</li>
-            <li>Ari Rozier - QA Engineer</li>
-            <li>Caleb Hughes - QA Engineer</li>
-        </ul>
-    </div>
+  </header>
+
+  <!-- PAGE CONTENT -->
+  <main class="page">
+    <section class="hero">
+      <h1 class="page-title">Meet the Team</h1>
+      
+    </section>
+
+    <section class="team-grid">
+      <article class="card">
+        <div class="avatar">AU</div>
+        <div class="card-body">
+          <h2 class="name">Adaeze Uwazie</h2>
+          <p class="role">Project Lead</p>
+          <p class="desc">Keeps the project aligned, organized, and moving forward.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="avatar">MM</div>
+        <div class="card-body">
+          <h2 class="name">Myles Murray</h2>
+          <p class="role">Lead Developer</p>
+          <p class="desc">Builds core functionality and integrates the full stack.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="avatar">MR</div>
+        <div class="card-body">
+          <h2 class="name">Mikayala Reeves</h2>
+          <p class="role">UX Designer</p>
+          <p class="desc">Designs clean, user-friendly flows and interfaces.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="avatar">AR</div>
+        <div class="card-body">
+          <h2 class="name">Ari Rozier</h2>
+          <p class="role">QA Engineer</p>
+          <p class="desc">Tests features and ensures the app is reliable and consistent.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="avatar">CH</div>
+        <div class="card-body">
+          <h2 class="name">Caleb Hughes</h2>
+          <p class="role">QA Engineer</p>
+          <p class="desc">Validates edge cases and helps improve usability and stability.</p>
+        </div>
+      </article>
+    </section>
+  </main>
+
+ 
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>
