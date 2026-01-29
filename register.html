@@ -6,6 +6,8 @@
     <title>Lab 1: HTML Basics</title>
     <link rel="stylesheet" href="register.css">
     <script>
+
+        //basic csript for log-in. This is onyl for basic functions and digital layout. Actual implementation will require database connectivity.
         function reg() {
             let fullName = document.getElementById("fullName").value;
             let fullEmail = document.getElementById("fullEmail").value;
@@ -27,7 +29,8 @@
                 return;
             }
             else{
-                output.innerHTML = "<p style='color:green;'>Registration successful!</p>";
+                output.innerHTML = "<p style='color:green;'>Registration successful!</p>"; // Placeholder for successful registration action
+                // Here, you would typically send the data to the server for further processing (SQL handeling) Use this for database connectivity.
             }
         }
         </script>
