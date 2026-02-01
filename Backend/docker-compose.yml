@@ -1,0 +1,28 @@
+services:
+  db:
+    image: postgres:16
+    container_name: comp-496-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: aib_user
+      POSTGRES_PASSWORD: aggiePride
+      POSTGRES_DB: aib_db
+    ports:
+      - "5433:5432"
+    volumes:
+      - "comp496_pgdata:/var/lib/postgresql/data"
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: aggiesInBusines
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@local.com
+      PGADMIN_DEFAULT_PASSWORD: aggiePride
+    ports:
+      - "5051:80"
+    depends_on:
+      - db
+
+volumes:
+  comp496_pgdata:
