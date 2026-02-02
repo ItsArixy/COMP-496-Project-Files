@@ -1,56 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab 1: HTML Basics</title>
-    <link rel="stylesheet" href="register.css">
-    <script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Account</title>
+  <link rel="stylesheet" href="register.css" />
 
-        //basic csript for log-in. This is onyl for basic functions and digital layout. Actual implementation will require database connectivity.
-        function reg() {
-            let fullName = document.getElementById("fullName").value;
-            let fullEmail = document.getElementById("fullEmail").value;
-            let passWord = document.getElementById("passWord").value;
-            let confirmPassWord = document.getElementById("confirmPassWord").value;
-            let output = document.getElementById("output");
-            if (fullName === "" || fullEmail === "" || passWord === "" || confirmPassWord === "") {
-                output.innerHTML = "<p style='color:red;'>All fields are required.</p>";
-                return;
-            }
+  <script>
+    function reg() {
+      let fullName = document.getElementById("fullName").value;
+      let fullEmail = document.getElementById("fullEmail").value;
+      let passWord = document.getElementById("passWord").value;
+      let confirmPassWord = document.getElementById("confirmPassWord").value;
+      let output = document.getElementById("output");
 
-            if(passWord.length < 8) {
-                output.innerHTML = "<p style='color:red;'>Password must be at least 8 characters long.</p>";
-                return;
-            }
+      if (fullName === "" || fullEmail === "" || passWord === "" || confirmPassWord === "") {
+        output.innerHTML = "<p class='msg error'>All fields are required.</p>";
+        return;
+      }
 
-            else if (passWord !== confirmPassWord) {
-                output.innerHTML = "<p style='color:red;'>Passwords do not match.</p>";
-                return;
-            }
-            else{
-                output.innerHTML = "<p style='color:green;'>Registration successful!</p>"; // Placeholder for successful registration action
-                // Here, you would typically send the data to the server for further processing (SQL handeling) Use this for database connectivity.
-            }
-        }
-        </script>
+      if (passWord.length < 8) {
+        output.innerHTML = "<p class='msg error'>Password must be at least 8 characters long.</p>";
+        return;
+      }
+
+      if (passWord !== confirmPassWord) {
+        output.innerHTML = "<p class='msg error'>Passwords do not match.</p>";
+        return;
+      }
+
+      output.innerHTML = "<p class='msg success'>Registration successful!</p>";
+    }
+  </script>
 </head>
-<body>
-<form name="register">
-    <fieldset>
-        <legend>Create Account</legend>
-        Full Name: <input type="text" name="fullname" id="fullName" placeholder="Please enter your full name."><br><br>
-        Email: <input type="email" name="email" id="fullEmail" placeholder="Please Enter your School Email."><br><br>
-        Password: <input type="password" name="password" id="passWord" placeholder="Please enter your password."><br><br>
-        Confirm Password: <input type="password" name="confirmpassword" id="confirmPassWord" placeholder="Please confirm your password."><br><br>
-        <input type="button" class="reg" onclick="reg()" value="Register">
-    </fieldset>
-    <div id="output">
 
+<body>
+  <header class="navBar">
+    <div class="nav-inner">
+      <a class="brand" href="homePage.html">Orbit Watchlist</a>
+
+      <nav class="nav-links">
+        <a href="homePage.html" class="nav-link">Home</a>
+        <a href="aboutPage.html" class="nav-link">About</a>
+        <a href="teamPage.html" class="nav-link">Team</a>
+        <a href="register.html" class="nav-link active">Register</a>
+      </nav>
     </div>
-    <div class="loginBar">
-           <h2 align="center"><a href="loginPage.html">Login</a></h2>
-    </div>
-</form>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <h1 class="page-title">Create Account</h1>
+      <p class="subtitle">Join us to build your watchlist across platforms.</p>
+    </section>
+
+    <section class="auth-wrap">
+      <form class="auth-card" name="register">
+        <h2 class="card-title">Register</h2>
+        <p class="card-sub">Use your school email to create an account.</p>
+
+        <div class="field">
+          <label for="fullName">Full Name</label>
+          <input type="text" id="fullName" placeholder="Enter your full name" />
+        </div>
+
+        <div class="field">
+          <label for="fullEmail">Email</label>
+          <input type="email" id="fullEmail" placeholder="Enter your school email" />
+        </div>
+
+        <div class="field">
+          <label for="passWord">Password</label>
+          <input type="password" id="passWord" placeholder="Create a password (8+ chars)" />
+        </div>
+
+        <div class="field">
+          <label for="confirmPassWord">Confirm Password</label>
+          <input type="password" id="confirmPassWord" placeholder="Re-enter your password" />
+        </div>
+
+        <button type="button" class="btn" onclick="reg()">Register</button>
+
+        <div id="output" class="output"></div>
+
+        <div class="loginBar">
+          <p>Already have an account?</p>
+          <a class="link" href="loginPage.html">Login</a>
+        </div>
+      </form>
+    </section>
+  </main>
 </body>
+</html>
 
