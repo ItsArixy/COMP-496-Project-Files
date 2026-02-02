@@ -1,50 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-    <link rel="stylesheet" href="loginPage.css">
-    <script>
-        //login validation script
-        let userName = document.getElementById("email").value;
-        let passWord = document.getElementById("password").value;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+  <link rel="stylesheet" href="loginPage.css" />
 
-        /*check within the database for user credentials (mongoDB or SQL required) This is to check wether a pre-existing user is logging in or if they need to register first.*/
-    </script>
+  <script>
+    function login() {
+      let email = document.getElementById("email").value;
+      let password = document.getElementById("password").value;
+      let output = document.getElementById("loginOutput");
+
+      if (email === "" || password === "") {
+        output.innerHTML = "<p class='msg error'>All fields are required.</p>";
+        return;
+      }
+
+      if (password.length < 8) {
+        output.innerHTML = "<p class='msg error'>Invalid credentials.</p>";
+        return;
+      }
+
+      output.innerHTML = "<p class='msg success'>Login successful!</p>";
+    }
+  </script>
 </head>
 
 <body>
-    <div>
 
+  <header class="navBar">
+    <div class="nav-inner">
+      <a class="brand" href="homePage.html">Orbit Watchlist</a>
 
+      <nav class="nav-links">
+        <a href="homePage.html" class="nav-link">Home</a>
+        <a href="aboutPage.html" class="nav-link">About</a>
+        <a href="teamPage.html" class="nav-link">Team</a>
+        <a href="loginPage.html" class="nav-link active">Login</a>
+      </nav>
     </div>
-    <h1 align="center">Login to Your Account</h1>
-    <form name="loginForm" action="authenticateUser" method="post" style="background-color: rgb(214, 212, 212); padding: 20px; max-width: 400px; margin: auto;">
-        <fieldset>
-            <legend>Login Details</legend>
-        <label for="email">School Email:</label><br>
-        <input type="text" id="email" name="email" required><br><br>
+  </header>
 
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password" required><br><br>
-        <input type="button" class="reg" value="Login">
-        </fieldset>
-    </form>
-    <div class="registerBar">
-           <h2 align="center"><a href="register.html">Register</a></h2> 
+  <main class="page">
+    <section class="hero">
+      <h1 class="page-title">Login to Your Account</h1>
+      <p class="subtitle">Access your personalized watchlist dashboard.</p>
+    </section>
+
+    <section class="auth-wrap">
+      <form class="auth-card" name="loginForm">
+        <h2 class="card-title">Welcome Back</h2>
+        <p class="card-sub">Enter your school email and password.</p>
+
+        <div class="field">
+          <label for="email">School Email</label>
+          <input type="email" id="email" placeholder="Enter your email" required />
         </div>
-    <div class="loginPopup">
 
-    </div>
-    <div class="navBar">
-        <nav>
-                <ul>
-                    <li><a href="homePage.html">Home</a></li>
-                    <li><a href="aboutPage.html">About</a></li>
-                    <li><a href="teamPage.html">Team Credits</a></li>
-                </ul>
-        </nav>
-    </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Enter your password" required />
+        </div>
+
+        <button type="button" class="btn" onclick="login()">Login</button>
+
+        <div id="loginOutput" class="output"></div>
+
+        <div class="registerBar">
+          <p>Don’t have an account?</p>
+          <a class="link" href="register.html">Register</a>
+        </div>
+      </form>
+    </section>
+  </main>
+
 </body>
 </html>
