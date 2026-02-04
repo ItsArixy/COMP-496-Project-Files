@@ -6,13 +6,31 @@
   <title>Business Home</title>
   <link rel="stylesheet" href="businessHomePage.css" />
 </head>
-
 <!--This will only be visible when the user is logged in and is a buisnes owner
 They can add their name, contact, location and type of service offered-->
-<div>
-    <button type="button">Edit Information</button>
-</div>
-<div class="information">
+<body>
+  <header>
+    <h1 align="center">Welcome to Your Business Dashboard</h1>
+  </header>
+  <main>
+    <section class="business-info">
+      <h2>Your Business Information</h2>
+      <form id="business-form">
+        <label for="business-name">Business Name:</label>
+        <input type="text" id="business-name" name="business-name" required />
 
-</div>
+        <label for="contact-info">Contact Information:</label>
+        <input type="text" id="contact-info" name="contact-info" required />
+
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" required />
+
+        <label for="service-type">Type of Service Offered:</label>
+        <input type="text" id="service-type" name="service-type" required />
+
+        <button type="submit">Save Information</button>
+      </form>
+    </section>
+  </main>
+</body>
 </html>
