@@ -7,9 +7,9 @@
 :root {
   --bg: #0d5de7;
   --card: rgb(0, 37, 244);
-  --card-border: rgba(237, 222, 10, 0.89);
+  --card-border: rgba(229, 188, 5, 0.89);
   --text: #e8ecff;
-  --muted: rgba(237, 234, 40, 0.75);
+  --muted: rgba(229, 188, 5, 0.75);
   --accent: #fffb00;
   --accent2: #fffb00;
 }
