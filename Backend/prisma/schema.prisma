@@ -30,6 +30,8 @@ model User {
   email     String  @unique
   password  String?
   role      Role    @default(client)
+  verified  Boolean @default(true)
+  verifiedToken String? @unique
 
   //One-to-one rltnshp for BusinessOwners and Business
   business Business?
