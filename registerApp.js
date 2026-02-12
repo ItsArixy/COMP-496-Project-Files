@@ -1,12 +1,13 @@
 //
 function reg() {
-      let fullName = document.getElementById("fullName").value;
+      let firstName = document.getElementById("firstName").value;
+      let lastName = document.getElementById("lastName").value;
       let fullEmail = document.getElementById("fullEmail").value;
       let passWord = document.getElementById("passWord").value;
       let confirmPassWord = document.getElementById("confirmPassWord").value;
       let output = document.getElementById("output");
 
-      if (fullName === "" || fullEmail === "" || passWord === "" || confirmPassWord === "") {
+      if (firstName === "" || lastName === "" || fullEmail === "" || passWord === "" || confirmPassWord === "") {
         output.innerHTML = "<p class='msg error'>All fields are required.</p>";
         return;
       }
