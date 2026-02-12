@@ -4,34 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Create Account</title>
-  <link rel="stylesheet" href="register.css" />
-
-  <script>
-    function reg() {
-      let fullName = document.getElementById("fullName").value;
-      let fullEmail = document.getElementById("fullEmail").value;
-      let passWord = document.getElementById("passWord").value;
-      let confirmPassWord = document.getElementById("confirmPassWord").value;
-      let output = document.getElementById("output");
-
-      if (fullName === "" || fullEmail === "" || passWord === "" || confirmPassWord === "") {
-        output.innerHTML = "<p class='msg error'>All fields are required.</p>";
-        return;
-      }
-
-      if (passWord.length < 8) {
-        output.innerHTML = "<p class='msg error'>Password must be at least 8 characters long.</p>";
-        return;
-      }
-
-      if (passWord !== confirmPassWord) {
-        output.innerHTML = "<p class='msg error'>Passwords do not match.</p>";
-        return;
-      }
-
-      output.innerHTML = "<p class='msg success'>Registration successful!</p>";
-    }
-  </script>
+  <link rel="stylesheet" href="register.css"/>
+  <script src="registerApp.js"></script>
 </head>
 
 <body>
