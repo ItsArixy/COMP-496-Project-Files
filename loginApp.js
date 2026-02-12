@@ -9,6 +9,8 @@ function login() {
     else {
         if (email === "admin@example.com" && password === "admin123") {
             output.innerHTML = "Login successful!";
+            //send the user to the business homepage on a successful login
+            window.location.href = "businessHomepage.html";
         } else {
             output.innerHTML = "Invalid email or password.";
         }
