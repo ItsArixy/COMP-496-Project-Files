@@ -25,7 +25,7 @@ enum BusinessType {
 model User {
   //unique id for every user
   id        String  @id @default(uuid())
-  firstname String
+  firstName String
   lastName  String
   email     String  @unique
   password  String?

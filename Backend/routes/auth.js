@@ -3,10 +3,9 @@ const router = express.Router(); //Initializing router
 const bcrypt = require('bcryptjs'); //Importing bcrypt for hashing passwords
 const jwt = require('jsonwebtoken'); // Importing jwt for token creation
 const {body, validationResult} = require('express-validator');
-const prisma = require("../db/prisma")
+const prisma = require("../prismaClient");
 const {verifyToken} = require('../middleware/authMiddleware');
 const crypto = require('crypto');
-const sendEmail = require('../utils/sendEmail');
 const passport = require('passport');
 
 //Helpers
@@ -52,8 +51,8 @@ router.post('/register',
         }
         //Create hashed password from original password
         const hashedPassword = await bcrypt.hash(password, 10);
-        //creating unique verification Token for email verification
-        const verificationToken = crypto.randomBytes(32).toString('hex');
+        //creating unique verified Token for email verification
+        const verifiedToken = crypto.randomBytes(32).toString('hex');
         //create new instance of user model with hashed password and verified as false to ensure email verification
         const newUser = await prisma.user.create({
             data: {
@@ -63,14 +62,14 @@ router.post('/register',
                 password: hashedPassword,
                 role: "client",
                 verified: false,
-                verificationToken: verificationToken
+                verifiedToken: verifiedToken
             },
             select: {id: true, firstName: true, lastName: true, email: true, role: true}
         });
 
         const baseUrl = process.env.API_BASE_URL || "http://localhost:3000";
         //creating verification link, once clicked user will be marked as verified
-        const verificationLink = `${baseUrl}/api/auth/verify-email?token=${verificationToken}`;
+        const verificationLink = `${baseUrl}/api/auth/verify-email?token=${verifiedToken}`;
         //sending email with verification link (commenting out but keeping again, just in case we want to use it later)
        /* await sendEmail({
             to: newUser.email,
@@ -107,7 +106,7 @@ router.get('/verify-email', async (req, res) => {
 
     try {
         const user = await prisma.user.findUnique({
-            where: {verificationToken: token},
+            where: {verifiedToken: token},
             select: {id: true}
         });
 
@@ -119,7 +118,7 @@ router.get('/verify-email', async (req, res) => {
             where: {id: user.id},
             data: {
                 verified: true,
-                verificationToken: null, //clearing token
+                verifiedToken: null, //clearing token
             }
         })
 
