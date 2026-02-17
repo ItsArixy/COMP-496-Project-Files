@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Business Home</title>
+  <link rel="stylesheet" href="businessHomePage.css" />
+</head>
+<!--This will only be visible when the user is logged in and is a buisnes owner
+They can add their name, contact, location and type of service offered-->
+<body>
+  <header>
+    <h1 align="center">Welcome to Your Business Dashboard!</h1>
+  </header>
+  <main>
+    <section class="business-info">
+      <h2>Your Business Information</h2>
+      <legend>Please fill out the form below to add or update your business details:
+        <form action="/submitBusinessInfo" method="POST">
+          <label for="businessName">Business Name:</label>
+          <input type="text" id="businessName" name="businessName" required /><br /><br />
+          
+          <label for="contactInfo">Contact Information:</label>
+          <input type="text" id="contactInfo" name="contactInfo" required /><br /><br />
+          
+          <label for="location">Location:</label>
+          <input type="text" id="location" name="location" required /><br /><br />
+          
+          <label for="serviceType">Type of Service Offered:</label>
+          <select id="serviceType" name="serviceType" required>
+            <option value="Hair">Hair</option>
+            <option value="Arts/Crafts">Arts/Crafts</option>
+            <option value="Design">Design</option>
+          </select><br /><br />
+          
+          <input type="submit" value="Submit" />
+        </form>
+
+      </legend>
+      
+    </section>
+  </main>
+</body>
+</html>

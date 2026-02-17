@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Account</title>
+  <link rel="stylesheet" href="register.css"/>
+  <script src="registerApp.js"></script>
+</head>
+
+<body>
+  <header class="navBar">
+    <div class="nav-inner">
+      <a class="brand" href="homePage.html"></a>
+
+      <nav class="nav-links">
+        <a href="homePage.html" class="nav-link">Home</a>
+        <a href="teamPage.html" class="nav-link">Team</a>
+        <a href="register.html" class="nav-link active">Register</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <h1 class="page-title">Create Account</h1>
+      <p class="subtitle">Join us by making an account!</p>
+    </section>
+
+    <section class="auth-wrap">
+      <form class="auth-card" name="register">
+        <h2 class="card-title">Register</h2>
+        <p class="card-sub">Use your school email to create an account.</p>
+
+        <div class="field">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" placeholder="Enter your first name" />
+        </div>
+
+        <div class="field">
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" placeholder="Enter your last name" />
+        </div>
+
+        <div class="field">
+          <label for="fullEmail">Email</label>
+          <input type="email" id="fullEmail" placeholder="Enter your school email" />
+        </div>
+
+        <div class="field">
+          <label for="passWord">Password</label>
+          <input type="password" id="passWord" placeholder="Create a password (8+ chars)" />
+        </div>
+
+        <div class="field">
+          <label for="confirmPassWord">Confirm Password</label>
+          <input type="password" id="confirmPassWord" placeholder="Re-enter your password" />
+        </div>
+
+        <button type="button" class="btn" onclick="reg()">Register</button>
+
+        <div id="output" class="output"></div>
+
+        <div class="loginBar">
+          <p>Already have an account?</p>
+          <a class="link" href="loginPage.html">Login</a>
+        </div>
+      </form>
+    </section>
+  </main>
+</body>
+</html>
+

@@ -1,0 +1,250 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #0d5de7;
+  --card: rgb(0, 37, 244);
+  --card-border: rgba(237, 222, 10, 0.89);
+  --text: #e8ecff;
+  --muted: rgba(237, 234, 40, 0.75);
+  --accent: #fffb00;
+  --accent2: #fffb00;
+}
+
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
+  background: radial-gradient(1200px 600px at 10% 0%, rgb(8, 0, 255), transparent 75%),
+              radial-gradient(900px 500px at 90% 20%, rgb(242, 255, 0), transparent 75%),
+              var(--bg);
+  min-height: 100vh;
+}
+
+/* navigation bar */
+
+.navBar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(11, 16, 32, 0.65);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.brand {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  font-size: 1.05rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--muted);
+  padding: 10px 12px;
+  border-radius: 10px;
+  transition: transform 0.15s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  transform: translateY(-1px);
+}
+
+.nav-link.active {
+  color: var(--text);
+  background: linear-gradient(135deg, rgb(224, 239, 10), rgba(61, 230, 195, 0.18));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* ---------- Page Layout ---------- */
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 18px 60px;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 26px;
+}
+
+.page-title {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: 0.4px;
+}
+
+.subtitle {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 1.05rem;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*  Register main card func  */
+.auth-wrap {
+  display: grid;
+  place-items: center;
+  margin-top: 20px;
+}
+
+.auth-card {
+  width: min(520px, 100%);
+  background: rgba(0, 37, 244, 0.55);
+  border: 1px solid var(--card-border);
+  border-radius: 18px;
+  padding: 22px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+}
+
+.card-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+
+.card-sub {
+  margin-top: 6px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+/* Inputs */
+.field {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+label {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+input {
+  width: 100%;
+  padding: 12px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(11, 16, 32, 0.35);
+  color: var(--text);
+  outline: none;
+}
+
+input::placeholder {
+  color: rgba(232, 236, 255, 0.6);
+}
+
+input:focus {
+  border-color: rgba(237, 222, 10, 0.9);
+  box-shadow: 0 0 0 3px rgba(237, 222, 10, 0.18);
+}
+
+/* Button func */
+.btn {
+  margin-top: 18px;
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-weight: 900;
+  color: #0b1020;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  transition: transform 0.15s ease, filter 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+
+/* Output */
+.output {
+  margin-top: 12px;
+  min-height: 24px;
+}
+
+.msg {
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-weight: 700;
+}
+
+.msg.error {
+  background: rgba(255, 0, 0, 0.15);
+  border: 1px solid rgba(255, 0, 0, 0.25);
+}
+
+.msg.success {
+  background: rgba(0, 255, 128, 0.15);
+  border: 1px solid rgba(0, 255, 128, 0.25);
+}
+
+/* Login  bar */
+.loginBar {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgba(232, 236, 255, 0.8);
+}
+
+.link {
+  color: var(--accent);
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+
+@media (max-width: 620px) {
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .page {
+    padding-top: 32px;
+  }
+
+  .loginBar {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+}
