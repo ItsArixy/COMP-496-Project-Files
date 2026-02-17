@@ -54,7 +54,11 @@ export default function LoginPop({open, onClose, onSuccess}) {
 
             const r = await apiClient.post(route, payload);
             setUser(r.data.user);
-            onSuccess?.();
+            onSuccess?.(
+                isRegister
+                    ? "Registration successful! Welcome, " + r.data.user.firstName
+                    : "Login successful! Welcome back, " + r.data.user.firstName
+            );
             onClose?.();
         } catch (e) {
             const data = e?.response?.data;
@@ -76,7 +80,7 @@ export default function LoginPop({open, onClose, onSuccess}) {
                 <div className="mt-4 flex flex-col gap-3">
                 {/*Show Name input only if registering*/}
                 {isRegister && (
-                    <div className="flex gap-2 mb-2">
+                    <div className="flex gap-2">
                         <input
                         className="w-full rounded-xl border border-white/20 bg-black/25 px-3 py-2 text-white placeholder-white/60 outline-none focus:border-yellow-300 focus:ring-4 focus:ring-yellow-300/20"
                         placeholder="First Name"
@@ -110,14 +114,16 @@ export default function LoginPop({open, onClose, onSuccess}) {
                     onChange={(e) => setPassword(e.target.value)}
                     disabled={busy}
                 />
-                <input
-                    className="w-full rounded-xl border border-white/20 bg-black/25 px-3 py-2 text-white placeholder-white/60 outline-none focus:border-yellow-300 focus:ring-4 focus:ring-yellow-300/20"
-                    type="password"
-                    placeholder="Confirm Password"
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                    disabled={busy}
-                />
+                {isRegister &&
+                    <input
+                        className="w-full rounded-xl border border-white/20 bg-black/25 px-3 py-2 text-white placeholder-white/60 outline-none focus:border-yellow-300 focus:ring-4 focus:ring-yellow-300/20"
+                        type="password"
+                        placeholder="Confirm Password"
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        disabled={busy}
+                    />
+                }
                 {err && <div className="text-red-600 text-sm mb-3">{err}</div>}
 
                 <div className="mt-4 flex justify-end gap-3">

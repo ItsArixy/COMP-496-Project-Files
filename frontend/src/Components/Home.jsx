@@ -60,7 +60,9 @@ export default function Home() {
                     <div className="rounded-2xl border border-white/15 bg-black/25 p-8 text-center backdrop-blur">
                         <h2 className="text-2xl font-extrabold">Ready to get started?</h2>
                         <p className="mt-2 text-sm text-yellow-300/80">Create an account and start tracking in under a minute.</p>
-                        <button className="mt-4 rounded-xl bg-yellow-300 px-5 py-3 font-bold text-black hover:brightness-105 transform hover:scale-105 cursor-pointer">
+                        <button className="mt-4 rounded-xl bg-yellow-300 px-5 py-3 font-bold text-black hover:brightness-105 transform hover:scale-105 cursor-pointer"
+                            onClick={() => setLoginOpen(true)}
+                        >
                             Create an Account
                         </button>
                     </div>
