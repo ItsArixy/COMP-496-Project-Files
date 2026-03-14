@@ -1,48 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Customer Home</title>
-  <link rel="stylesheet" href="customerPage.css" />
-  <script src="searchBusinesses.js"></script>
-</head>
-<body>
-  <header>
-    <h1>Customer Home</h1>
-  </header>
-    <main>
-        <section class="customer-info">
-        <h2>Your Customer Dashboard</h2>
-        <p>Welcome to your customer dashboard! Here you can search for local businesses, view their details, and connect with them.</p>
-        </section>
-    </main>
-    <div id="searchBar">
-    <form>
-      <label for="searchInput">Search for businesses:</label>
-      <input type="text" id="searchInput" name="searchInput" placeholder="Enter business name."/>
-      <button type="button" onclick="searchBusinesses()">Search</button>
-    </form>
-    <form>
-      <label for="searchInput">Search for buisness type</label>
-      <input type="text" id="searchInput" name="searchInput" placeholder="Enter buisness type."/>
-      <button type="button" onclick="searchBusinesses()">Search</button>
-    </form>
-  </div>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <div id="results">
-    <h2>Search Results:</h2>
-    <ul id="resultsList">
-      <!-- Search results will be displayed here -->
-    </ul>
-    </div>
-<div id="manage-appointments">
-    <h2>Manage Appointments</h2>
-    <p>Here you can view and manage your appointments with local businesses.</p>
-    <form>
-        
-    </form>
-  </div>
-</div>
+<title>Customer Home</title>
+
+<link rel="stylesheet" href="businessHomePage.css">
+<script src="searchBusinesses.js" defer></script>
+
+</head>
+
+<body>
+
+<header>
+<h1>Customer Dashboard</h1>
+</header>
+
+<main>
+
+<section class="business-info">
+
+<h2>Welcome!</h2>
+
+<legend>
+Search and connect with Aggie businesses. Use the filters below to find businesses by name, category, or location.
+</legend>
+
+<form>
+
+<label for="searchName">Search Business Name</label>
+<input type="text" id="searchName" placeholder="Enter business name" onkeyup="searchBusinesses()">
+
+<label for="searchCategory">Category</label>
+<select id="searchCategory" onchange="searchBusinesses()">
+<option value="All">All Categories</option>
+<option value="Hair">Hair</option>
+<option value="Arts/Crafts">Arts/Crafts</option>
+<option value="Design">Design</option>
+</select>
+
+<label for="searchLocation">Location</label>
+<input type="text" id="searchLocation" placeholder="Enter location" onkeyup="searchBusinesses()">
+
+</form>
+
+</section>
+
+<section class="business-info">
+
+<h2>Available Businesses</h2>
+
+<div id="results"></div>
+
+</section>
+
+<section class="business-info">
+
+<h2>Manage Appointments</h2>
+
+<legend>
+Your booked appointments will appear here.
+</legend>
+
+</section>
+
+</main>
+
 </body>
 </html>
