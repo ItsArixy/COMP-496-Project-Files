@@ -1,0 +1,176 @@
+/* Reset */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+/* SAME variables as homepage */
+:root{
+--bg:#0d5de7;
+--card:rgb(0,37,244);
+--card-border:rgba(229,188,5,0.89);
+--text:#e8ecff;
+--muted:rgba(229,188,5,0.75);
+--accent:#fffb00;
+--accent2:#fffb00;
+}
+
+/* Page background */
+body{
+font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+color:var(--text);
+
+background:
+radial-gradient(1200px 600px at 10% 0%, rgb(8,0,255), transparent 75%),
+radial-gradient(900px 500px at 90% 20%, rgb(242,255,0), transparent 75%),
+var(--bg);
+
+min-height:100vh;
+}
+
+/* Header */
+header{
+text-align:center;
+padding:48px 18px 20px;
+}
+
+header h1{
+font-size:clamp(2rem,3vw,2.6rem);
+font-weight:800;
+}
+
+/* Dashboard layout */
+.dashboard{
+max-width:1100px;
+margin:0 auto;
+padding:40px 18px 60px;
+}
+
+/* Card style (matches homepage .card exactly) */
+.customer-info,
+#searchSection,
+#manage-appointments{
+
+background:rgba(0,37,244,0.55);
+border:1px solid var(--card-border);
+border-radius:18px;
+
+padding:20px;
+margin-bottom:20px;
+
+backdrop-filter:blur(10px);
+
+transition:transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.customer-info:hover,
+#searchSection:hover,
+#manage-appointments:hover{
+transform:translateY(-4px);
+border-color:rgba(255,255,255,0.22);
+background:rgba(255,255,255,0.07);
+}
+
+/* Section headings */
+.customer-info h2,
+#searchSection h2,
+#manage-appointments h2{
+font-size:1.2rem;
+font-weight:900;
+margin-bottom:10px;
+}
+
+/* Search inputs */
+input,
+select{
+
+padding:10px 12px;
+border-radius:10px;
+
+border:1px solid rgba(255,255,255,0.18);
+background:rgba(11,16,32,0.35);
+
+color:var(--text);
+
+margin:8px 6px;
+outline:none;
+}
+
+/* Focus glow */
+input:focus,
+select:focus{
+border-color:var(--card-border);
+box-shadow:0 0 0 3px rgba(229,188,5,0.18);
+}
+
+/* Button style (same as homepage buttons) */
+button{
+
+padding:10px 14px;
+border-radius:12px;
+border:none;
+
+cursor:pointer;
+font-weight:900;
+
+color:#0b1020;
+
+background:linear-gradient(135deg,var(--accent),var(--accent2));
+
+transition:transform 0.15s ease, filter 0.2s ease;
+}
+
+button:hover{
+transform:translateY(-2px);
+filter:brightness(1.05);
+}
+
+/* Results grid */
+#results{
+margin-top:20px;
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:16px;
+}
+
+/* Business cards (same style as homepage cards) */
+.business-card{
+
+background:rgba(0,37,244,0.55);
+border:1px solid var(--card-border);
+border-radius:18px;
+
+padding:18px;
+
+backdrop-filter:blur(10px);
+
+transition:transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.business-card:hover{
+transform:translateY(-4px);
+border-color:rgba(255,255,255,0.22);
+background:rgba(255,255,255,0.07);
+}
+
+/* Card text */
+.business-card h3{
+font-size:1.1rem;
+font-weight:900;
+margin-bottom:6px;
+}
+
+.business-card p{
+margin:4px 0;
+font-size:0.95rem;
+color:var(--muted);
+}
+
+/* Rating */
+.rating{
+color:var(--accent);
+font-size:18px;
+margin-top:6px;
+}
