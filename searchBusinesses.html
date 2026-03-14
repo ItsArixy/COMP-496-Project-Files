@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search Businesses</title>
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f4f4;
+    margin:0;
+}
+
+header{
+    background:#333;
+    color:white;
+    padding:15px;
+    text-align:center;
+}
+
+.search-container{
+    text-align:center;
+    margin:20px;
+}
+
+input, select{
+    padding:10px;
+    margin:5px;
+    width:200px;
+}
+
+.business-list{
+    width:80%;
+    margin:auto;
+}
+
+.business-card{
+    background:white;
+    padding:15px;
+    margin:10px 0;
+    border-radius:5px;
+    box-shadow:0 0 5px rgba(0,0,0,0.2);
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Search Local Businesses</h1>
+</header>
+
+<div class="search-container">
+
+<input type="text" id="searchInput" placeholder="Search by business name...">
+
+<select id="categoryFilter">
+<option value="All">All Categories</option>
+<option value="Hair">Hair</option>
+<option value="Arts/Crafts">Arts/Crafts</option>
+<option value="Design">Design</option>
+</select>
+
+<button onclick="filterBusinesses()">Search</button>
+
+</div>
+
+<div class="business-list" id="businessList">
+
+<div class="business-card" data-category="Hair">
+<h3>Elite Hair Studio</h3>
+<p>Category: Hair</p>
+<p>Location: Charlotte</p>
+</div>
+
+<div class="business-card" data-category="Arts/Crafts">
+<h3>Creative Crafts Shop</h3>
+<p>Category: Arts/Crafts</p>
+<p>Location: Greensboro</p>
+</div>
+
+<div class="business-card" data-category="Design">
+<h3>Modern Design Co.</h3>
+<p>Category: Design</p>
+<p>Location: Raleigh</p>
+</div>
+
+<div class="business-card" data-category="Hair">
+<h3>Fresh Fade Barbershop</h3>
+<p>Category: Hair</p>
+<p>Location: Denton</p>
+</div>
+
+</div>
+
+<script>
+
+function filterBusinesses(){
+
+let searchValue = document.getElementById("searchInput").value.toLowerCase();
+let category = document.getElementById("categoryFilter").value;
+let businesses = document.querySelectorAll(".business-card");
+
+businesses.forEach(function(card){
+
+let name = card.querySelector("h3").textContent.toLowerCase();
+let cardCategory = card.getAttribute("data-category");
+
+let nameMatch = name.includes(searchValue);
+let categoryMatch = (category === "All" || category === cardCategory);
+
+if(nameMatch && categoryMatch){
+card.style.display = "block";
+}
+else{
+card.style.display = "none";
+}
+
+});
+
+}
+
+</script>
+
+</body>
+</html>
