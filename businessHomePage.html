@@ -17,7 +17,7 @@ They can add their name, contact, location and type of service offered-->
     <section class="business-info">
       <h2>Your Business Information</h2>
       <legend>Please fill out the form below to add or update your business details:
-        <form action="/submitBusinessInfo" method="POST">
+        <form id="businessForm">
           <label for="businessName">Business Name:</label>
           <input type="text" id="businessName" name="businessName" required /><br /><br />
           
@@ -34,7 +34,7 @@ They can add their name, contact, location and type of service offered-->
             <option value="Design">Design</option>
           </select><br /><br />
           
-          <input type="submit" value="Submit" />
+          <button type="submit">Save Business</button>
         </form>
 
       </legend>
@@ -47,5 +47,33 @@ They can add their name, contact, location and type of service offered-->
     </section>
   </main>
   </div>
+
+
+  <script>
+
+document.getElementById("businessForm").addEventListener("submit", function(event){
+event.preventDefault();
+
+let business = {
+name: document.getElementById("businessName").value,
+contact: document.getElementById("contactInfo").value,
+location: document.getElementById("location").value,
+service: document.getElementById("serviceType").value
+};
+
+let businesses = JSON.parse(localStorage.getItem("businesses")) || [];
+
+businesses.push(business);
+
+localStorage.setItem("businesses", JSON.stringify(businesses));
+
+alert("Business saved successfully!");
+
+document.getElementById("businessForm").reset();
+
+});
+
+</script>
+
 </body>
 </html>
