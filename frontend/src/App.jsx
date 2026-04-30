@@ -7,15 +7,17 @@ import Footer from "./Components/Footer";
 import LoginPop from "./auth/LoginPop";
 import BusinessFormPop from "./Components/BusinessFormPop";
 import FeaturedBusinesses from "./Components/FeaturedBusiness";
+import Team from "./Components/TeamLanding"
 
 import { AuthProvider, useAuth } from "./auth/AuthContext";
 
-function HomePage({ onListBusinessClick }) {
+function HomePage({ onListBusinessClick, onLoginClick }) {
   return (
     <>
-      <Hero />
+      <Hero onLoginClick={onLoginClick}/>
       <Home onListBusinessClick={onListBusinessClick} />
       <FeaturedBusinesses />
+      <Team/>
     </>
   );
 }
@@ -48,7 +50,7 @@ function AppContent() {
       <Routes>
         <Route
           path="/"
-          element={<HomePage onListBusinessClick={handleListBusinessClick} />}
+          element={<HomePage onListBusinessClick={handleListBusinessClick} onLoginClick={() => setAuthOpen(true)} />}
         />
       </Routes>
 

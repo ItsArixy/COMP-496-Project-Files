@@ -1,7 +1,12 @@
 import { useState } from "react";
 import { Search, Users, Clock, ArrowRight } from "lucide-react";
+import barberimage from "../assets/businesses/barber.png"
+import craftimage from "../assets/businesses/craft.png"
+import designimage from "../assets/businesses/gd.png"
+import photoimage from "../assets/businesses/photography.png"
+import makeupimage from "../assets/businesses/makeup.png"
 
-// Temporary mock data (replace with backend later)
+// Temporary mock data (will replace with backend later)
 const services = [
   {
     id: 1,
@@ -10,6 +15,7 @@ const services = [
     category: "Barbering",
     description: "Student barber offering haircuts, tapers, lineups, and beard trims.",
     price: "$25+",
+    image: barberimage
   },
   {
     id: 2,
@@ -18,6 +24,7 @@ const services = [
     category: "Arts and Crafts",
     description: "Handmade gifts, paintings, decorations, and custom craft work.",
     price: "$15+",
+    image: craftimage
   },
   {
     id: 3,
@@ -26,6 +33,7 @@ const services = [
     category: "Graphic Design",
     description: "Logos, flyers, business cards, and social media graphics.",
     price: "$30+",
+    image: designimage
   },
   {
     id: 4,
@@ -34,6 +42,7 @@ const services = [
     category: "Photography",
     description: "Graduation photos, brand shoots, events, and portraits.",
     price: "$50+",
+    image: photoimage
   },
   {
     id: 5,
@@ -42,6 +51,7 @@ const services = [
     category: "Beauty",
     description: "Makeup, lashes, brows, and beauty services for students.",
     price: "$35+",
+    image: makeupimage
   },
 ];
 
@@ -208,15 +218,14 @@ export default function Home({onListBusinessClick}) {
                 key={service.id}
                 className="rounded-3xl border p-6 shadow hover:shadow-lg"
               >
-                {/* Placeholder (initials instead of image) */}
-                <div className="mb-4 flex h-24 items-center justify-center rounded-xl bg-blue-100">
-                  <span className="text-xl font-bold text-blue-700">
-                    {service.businessName
-                      .split(" ")
-                      .map((w) => w[0])
-                      .join("")}
-                  </span>
-                </div>
+                {/* Service Image */}
+                <div className="mb-4 h-32 overflow-hidden rounded-xl">
+                  <img
+                    src={service.image}
+                    alt={service.businessName}
+                    className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+                    />
+                  </div>
 
                 <h4 className="text-xl font-bold">
                   {service.serviceName}

@@ -1,4 +1,8 @@
-// src/Components/FeaturedBusinesses.jsx
+import barberimage from "../assets/businesses/barber.png"
+import craftimage from "../assets/businesses/craft.png"
+import designimage from "../assets/businesses/gd.png"
+import hairimage from "../assets/businesses/hair.png"
+
 
 const featuredBusinesses = [
   {
@@ -6,36 +10,36 @@ const featuredBusinesses = [
     name: "Fresh Fade Barbershop",
     category: "Barbering",
     owner: "Student Owner",
-    description: "Student barber offering clean cuts, lineups, and quick appointments.",
-    rating: "-",
-    initials: "AC",
+    description: "Student barber offering clean fades, tapers, and precise lineups on and around campus.",
+    rating: "4.7",
+    image: barberimage,
   },
   {
     id: 2,
-    name: "Creative Crafts Shop ",
+    name: "Creative Crafts Shop",
     category: "Graphic Design",
     owner: "Student Designer",
-    description: "",
-    rating: "-",
-    initials: "BG",
+    description: "Custom designs for logos, flyers, and social media content tailored for student brands.",
+    rating: "4.9",
+    image: craftimage,
   },
   {
     id: 3,
     name: "Modern Design Co.",
     category: "Tutoring",
-    owner: "",
-    description: "",
-    rating: "-",
-    initials: "AT",
+    owner: "Student Tutor",
+    description: "Affordable tutoring services helping students succeed in math, coding, and core subjects.",
+    rating: "4.3",
+    image: designimage,
   },
   {
     id: 4,
     name: "Elite Hair Studio",
-    category: "Beauty ",
+    category: "Beauty",
     owner: "Student Owner",
-    description: "",
-    rating: "-",
-    initials: "CC",
+    description: "Professional styling services including braids, installs, and natural hair care.",
+    rating: "5.0",
+    image: hairimage,
   },
 ];
 
@@ -64,9 +68,11 @@ export default function FeaturedBusinesses() {
               className="rounded-3xl border border-gray-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
             >
               <div className="mb-5 flex h-36 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-100 to-yellow-100">
-                <div className="flex h-20 w-20 items-center justify-center rounded-full bg-blue-700 text-2xl font-extrabold text-white">
-                  {business.initials}
-                </div>
+                <img
+                  src={business.image}
+                  alt={business.name}
+                  className="h-full w-full object-cover rounded-2xl"
+                />
               </div>
 
               <div className="mb-3 flex items-center justify-between gap-3">
