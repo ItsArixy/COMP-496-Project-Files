@@ -1,48 +1,88 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import {useState} from 'react';
-import Home from "./Components/Home"
-import NavBar from "./Components/NavBar"
-import LoginPop from "./auth/LoginPop"
-import { AuthProvider as Auth, AuthProvider } from "./auth/AuthContext"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState } from "react";
+import Home from "./Components/Home";
+import Hero from "./Components/Hero";
+import NavBar from "./Components/NavBar";
+import Footer from "./Components/Footer";
+import LoginPop from "./auth/LoginPop";
+import BusinessFormPop from "./Components/BusinessFormPop";
+import FeaturedBusinesses from "./Components/FeaturedBusiness";
 
+import { AuthProvider, useAuth } from "./auth/AuthContext";
 
-function HomePage() {
+function HomePage({ onListBusinessClick }) {
   return (
     <>
-      <Home />
+      <Hero />
+      <Home onListBusinessClick={onListBusinessClick} />
+      <FeaturedBusinesses />
     </>
-  )
+  );
 }
 
-export default function App() {
+function AppContent() {
+  const { user } = useAuth();
+
   const [authOpen, setAuthOpen] = useState(false);
+  const [businessOpen, setBusinessOpen] = useState(false);
   const [toast, setToast] = useState(null);
 
   const showToast = (message) => {
     setToast(message);
-    window.setTimeout(() => setToast(null), 3000); // Clear toast after 3 seconds
+    window.setTimeout(() => setToast(null), 3000);
   };
+
+  const handleListBusinessClick = () => {
+    if (!user) {
+      setAuthOpen(true);
+      return;
+    }
+
+    setBusinessOpen(true);
+  };
+
   return (
-      <AuthProvider>
-        <BrowserRouter>
-          <NavBar onLoginClick={() => setAuthOpen(true)} />
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-          </Routes>
-          <LoginPop 
-            open={authOpen} 
-            onClose={() => setAuthOpen(false)} 
-            onSuccess={(message) => {
-              setAuthOpen(false);
-              showToast(typeof message === 'string' ? message : "Login successful!");
-            }}
-          />
-          {toast && (
-            <div className="fixed bottom-6 left-1/2 z-[60] -translate-x-1/2 rounded-lg bg-black/80 px-4 py-2 text-white">
-              {toast}
-            </div>
-          )}
-        </BrowserRouter>
-      </AuthProvider>
-    )
+    <BrowserRouter>
+      <NavBar onLoginClick={() => setAuthOpen(true)} />
+
+      <Routes>
+        <Route
+          path="/"
+          element={<HomePage onListBusinessClick={handleListBusinessClick} />}
+        />
+      </Routes>
+
+      <LoginPop
+        open={authOpen}
+        onClose={() => setAuthOpen(false)}
+        onSuccess={(message) => {
+          setAuthOpen(false);
+          showToast(
+            typeof message === "string" ? message : "Login successful!"
+          );
+        }}
+      />
+
+      <BusinessFormPop
+        open={businessOpen}
+        onClose={() => setBusinessOpen(false)}
+      />
+
+      {toast && (
+        <div className="fixed bottom-6 left-1/2 z-[60] -translate-x-1/2 rounded-lg bg-black/80 px-4 py-2 text-white">
+          {toast}
+        </div>
+      )}
+
+      <Footer />
+    </BrowserRouter>
+  );
+}
+
+export default function App() {
+  return (
+    <AuthProvider>
+      <AppContent />
+    </AuthProvider>
+  );
 }

@@ -53,7 +53,6 @@ router.post('/register',
         //Create hashed password from original password
         const hashedPassword = await bcrypt.hash(password, 10);
         //creating unique verification Token for email verification
-        //const verifiedToken = crypto.randomBytes(32).toString('hex');
         //create new instance of user model with hashed password and verified as false to ensure email verification
         const newUser = await prisma.user.create({
             data: {

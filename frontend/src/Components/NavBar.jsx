@@ -25,6 +25,11 @@ export default function NavBar({onLoginClick}) {
                             `${activeLink} ${isActive ? "bg-yellow-300 text-black font-semibold" : "text-yellow-200/80 hover:text-white"}`}>
                                 Team
                         </NavLink>
+                        <NavLink to="/team" 
+                        className={({isActive}) => 
+                            `${activeLink} ${isActive ? "bg-yellow-300 text-black font-semibold" : "text-yellow-200/80 hover:text-white"}`}>
+                                Appointments
+                        </NavLink>
                         {/* Conditional Login/logout button */}
                         {!user ? (
                             <button onClick={onLoginClick} 
