@@ -33,7 +33,7 @@ They can add their name, contact, location and type of service offered-->
             <option value="Arts/Crafts">Arts/Crafts</option>
             <option value="Design">Design</option>
           </select><br /><br />
-          <button type="submit">Save Business</button>
+          <button type="submit" onclick="addBusinessToDashboard()">Save Business</button>
         </form>
       </legend>
       
@@ -46,7 +46,13 @@ They can add their name, contact, location and type of service offered-->
         <a href="searchBusinesses.html"><button type="button">View Business Listing</button></a>
         <a href="customerpage.html"><button type="button">Are you a Customer? View Customer Dashboard</button></a>
       </section>
-      
+      <div id="manage-appointments">
+        <h2>Manage Appointments</h2>
+        <p>Here you can view and manage your appointments with customers.</p>
+        <button type="button" onclick="manageAppointments()">View Appointments</button>
+        <form>
+            
+        </form>
     </section>
   </main>
   </div>
@@ -77,6 +83,19 @@ document.getElementById("businessForm").reset();
 
 });
 
+</script>
+
+<script>
+function manageAppointments() {
+  let business = {
+name: document.getElementById("businessName").value,
+contact: document.getElementById("contactInfo").value,
+location: document.getElementById("location").value,
+service: document.getElementById("serviceType").value
+};
+let appointments = JSON.parse(localStorage.getItem("appointments")) || [];
+document.getElementById("manage-appointments").innerHTML = "<li> Business Name: " + business.name + "\nLocation: " + business.location + "\nService: " + business.service + "</li>";
+}
 </script>
 
 </body>
